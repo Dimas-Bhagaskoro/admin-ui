@@ -1,5 +1,5 @@
 import React from "react";
-import UserCard from "../Usercard";
+import UserCard from "../UserCard.";
 function Exercise(){
     return (
         <>
