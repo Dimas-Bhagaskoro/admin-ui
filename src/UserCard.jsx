@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Usercard(props) {
+function UserCard(props) {
   const { name, email, street, city } = props;
 
   const [clicked, setClicked] = useState(false);
