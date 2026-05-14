@@ -71,9 +71,9 @@ function FormSignUp() {
       <div className="flex justify-center mt-2 text-sm text-gray-500">
         <p>
           Already have an account?{" "}
-          <span className="text-primary font-semibold cursor-pointer">
-            Sign in here
-          </span>
+          <link to="/login" className="text-primary font-semibold">
+          Sign In Here
+          </link>
         </p>
       </div>
     </>
