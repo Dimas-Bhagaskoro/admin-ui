@@ -1,5 +1,5 @@
 import React from "react";
-import Checkbox from "../Elements/Checkbox";
+import Checkbox from "../Elements/CheckBox";
 import LabeledInput from "../Elements/LabeledInput";
 import Button from "../Elements/Button";
 
