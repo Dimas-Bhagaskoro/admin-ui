@@ -1,31 +1,17 @@
 import React from "react";
+import Input from "./Input";
 
 function LabeledInput(props) {
-    const { label, id, ... rest } = props;
-    return (
-        <>
-        <label htmlFor={id} className="block text-sm mb-1">
-                {label}
-              </label>
+  const { label, id, ...rest } = props;
 
-              <input
-                id={id}
-                {...rest}
-                className="
-                 w-full
-                    border
-                    border-gray-300
-                    rounded-md
-                    px-3
-                    py-3
-                    text-sm
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-primary
-                "
-              />
-        </>
-    );
+  return (
+    <>
+      <label htmlFor={id} className="block text-sm mb-2">
+        {label}
+      </label>
+      <Input id={id} {...rest} />
+    </>
+  );
 }
 
 export default LabeledInput;
