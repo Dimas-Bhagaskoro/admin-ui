@@ -19,18 +19,17 @@ function CardRecentTransaction(props) {
             <div className="mb-4">
               {tabs.map((tab) => (
                 <button
-                  key={tab}
-                  className="px-4 font-bold text-gray-01"
-                  	className={
-                    active == tab
-                      ? "px-4 font-bold text-primary border-b-4 border-primary"
-                      : "px-4 font-bold text-gray-01"
-                  }
-                  onClick={() => setActive(tab)}
-                  value={tab}
-                >
-                  {tab}
-                </button>
+                key={tab}
+                className={
+                active == tab
+                    ? "px-4 font-bold text-primary border-b-4 border-primary"
+                    : "px-4 font-bold text-gray-01"
+                }
+                onClick={() => setActive(tab)}
+                value={tab}
+              >
+                {tab}
+              </button>
               ))}
             </div>
             	{filteredData.map((item) => (
