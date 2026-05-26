@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Elements/Card";
-import BarsDataset from "../Elements/BarsDataSet";
+import BarsDataset from "../Elements/BarsDataset";
 
 function CardStatistic(props) {
   const { data } = props;
