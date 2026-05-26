@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Card from "../Elements/Card";
+import BarsDataset from "../Elements/BarsDataset";
 
 function CardRecentTransaction(props) {
   const { data } = props;
@@ -21,7 +22,7 @@ function CardRecentTransaction(props) {
                 <button
                 key={tab}
                 className={
-                active == tab
+                active === tab
                     ? "px-4 font-bold text-primary border-b-4 border-primary"
                     : "px-4 font-bold text-gray-01"
                 }
