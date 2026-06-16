@@ -4,32 +4,60 @@ import SignUpPage from "./pages/signUp";
 import ErrorPage from "./pages/error";
 import DashboardPage from "./pages/dashboard";
 import BalancePage from "./pages/balances";
-import { createBrowserRouter, Link, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext";
 
 function App() {
-  const router = createBrowserRouter([
+  const { user } = useContext(AuthContext);
+
+  const RequireAuth = ({ children }) => {
+    return user ? children : <Navigate to="/sign-in" />;
+  };
+
+  const NotRequireAuth = ({ children }) => {
+    return !user ? children : <Navigate to="/" />;
+  };
+
+  const myRouter = createBrowserRouter([
     {
       path: "/",
-      element: <DashboardPage />,
+      element: (
+        <RequireAuth>
+          <DashboardPage />
+        </RequireAuth>
+      ),
       errorElement: <ErrorPage />,
     },
     {
-      path: "/sign-up",
-      element: <SignUpPage />,
-    },
-    {
       path: "/sign-in",
-      element: <SignInPage />,
+      element: (
+        <NotRequireAuth>
+          <SignInPage />
+        </NotRequireAuth>
+      ),
     },
     {
-      path: "/balances",
-      element: <BalancePage />,
+      path: "/register",
+      element: (
+        <NotRequireAuth>
+          <SignUpPage />
+        </NotRequireAuth>
+      ),
+    },
+    {
+      path: "/balance",
+      element: (
+        <RequireAuth>
+          <BalancePage />
+        </RequireAuth>
+      ),
     },
   ]);
 
   return (
     <>
-    <RouterProvider router={router} />
+    <RouterProvider router={myRouter} />
     </>
   );
 }

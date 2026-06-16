@@ -2,13 +2,25 @@ import React from "react";
 import Checkbox from "../Elements/CheckBox";
 import LabeledInput from "../Elements/LabeledInput";
 import Button from "../Elements/Button";
+import { Link } from "react-router-dom";
+import {useState} from "react";
+import { loginService } from "../../services/authService";
 
-function FormSignIn() {
+function FormSignIn({onSubmit}) {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  onSubmit(email, password);
+};
+
     return (
         <>
          {/* form start */}
         <div className="bg-white p-8 rounded-xl shadow-sm">
-          <form action="" className="space-y-5">
+          <form action="" className="space-y-5" onSubmit={handleSubmit}>
             <div className="mb-6">
                 <LabeledInput
                 label="Email address" 
@@ -16,6 +28,8 @@ function FormSignIn() {
                 type="email"
                 placeholder="Enter your email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div className="mb-6">
@@ -25,6 +39,8 @@ function FormSignIn() {
                 type="password"
                 placeholder="Enter your password"
                 name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
             <div className="mb-6">
@@ -81,9 +97,9 @@ function FormSignIn() {
 </Button>
         {/* sign in with google end */}
         {/* link start */}
-        <link to ="register" className="text-primary text-sm font-bold">
-        Create an account
-        </link>
+        <Link to="/register" className="text-primary text-sm font-bold">
+          Create an account
+        </Link>
         {/* link end */}
         </>
     );
