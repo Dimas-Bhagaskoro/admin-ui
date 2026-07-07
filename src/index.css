@@ -1,2 +1,39 @@
 @config "../tailwind.config.js";
 @import "tailwindcss";
+
+/* ==========================================================================
+   KUSTOMISASI GLOBAL DARK MODE (SOAL 6) - TAILWIND V4 STYLE
+   ========================================================================== */
+
+/* Mengubah warna latar belakang dasar dashboard */
+.dark .bg-special-mainBg {
+  background-color: #0f172a !important; /* Slate 900 */
+}
+
+/* Mengubah warna komponen Header/Navbar atas */
+.dark header {
+  background-color: #1e293b !important; /* Slate 800 */
+  border-color: #334155 !important;
+}
+
+/* Mengubah seluruh komponen Card putih bawaan menjadi gelap */
+.dark .bg-white {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Memperbaiki warna teks judul & paragraf agar kontras di latar gelap */
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark p, 
+.dark span:not(.text-primary):not(.text-emerald-500) {
+  color: #e2e8f0 !important; /* Slate 200 */
+}
+
+/* Menyesuaikan warna sub-label kecil agar tidak terlalu terang */
+.dark .text-gray-400, 
+.dark .text-gray-500 {
+  color: #94a3b8 !important; /* Slate 400 */
+}
